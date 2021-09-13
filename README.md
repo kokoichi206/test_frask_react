@@ -1,4 +1,7 @@
 # test_frask_react
 
-## My Env
-
+## Getting started
+```bash
+$ npm install axios
+$ yarn start
+```

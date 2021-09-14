@@ -15,4 +15,4 @@ api.add_resource(HelloApiHandler, '/flask/hello')
 
 # if __name__ == 'main':
 #     print('hoge')
-app.run(port=8000, debug=True)
+# app.run(port=8000, debug=True)

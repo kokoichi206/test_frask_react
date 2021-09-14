@@ -6,7 +6,7 @@ root = true
 indent_style = space
 
 # インデント時のサイズ設定
-indent_size = 4
+indent_size = 2
 
 # 改行コード設定（lf/cr/crlf）
 end_of_line = lf
@@ -20,11 +20,5 @@ trim_trailing_whitespace = true
 # 最終行の改行設定（true=改行あり）
 insert_final_newline = true
 
-[*.json]
-indent_size = 2
-
-[*.yml]
-indent_size = 2
-
-[*.md]
-indent_size = 2
+[*.py]
+indent_size = 4

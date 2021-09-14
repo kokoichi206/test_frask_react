@@ -1,20 +1,36 @@
 from db_test import select_all
 from flask_restful import Api, Resource, reqparse
 
+import json
+from datetime import date, datetime
+
+# date, datetimeの変換関数
+def json_serial(obj):
+    # 日付型の場合には、文字列に変換します
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    # 上記以外はサポート対象外.
+    raise TypeError ("Type %s not serializable" % type(obj))
+
 class HelloApiHandler(Resource):
     def get(self):
-        import models.db_test as db
+        import api.models.db_test as db
         rank_all = db.select_all()
-        json = []
+        items = []
+        print(rank_all)
         for r in rank_all:
-            json.append({
+            items.append({
                 "id": r.id,
                 "name": r.name,
                 "amount": r.amount,
                 "date": r.date,
             })
+        print(items)
+
+        jsonstr = json.dumps(items, default=json_serial)
         return {
-            json
+            'resultStatus': 'SUCCESS',
+            "message": jsonstr
         }
         # return {
         #     'resultStatus': 'SUCCESS',

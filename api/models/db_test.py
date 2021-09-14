@@ -1,11 +1,11 @@
-import api.models.database as db
+import database as db
 
 def init():
     db.init_db()
 
 def add_rank():
-    from api.models.database import db_session
-    from api.models.models import Ranks
+    from database import db_session
+    from models import Ranks
 
     c1 = Ranks('Minami', 4_000_000)
     c2 = Ranks('Maiyan', 1_200_000)
@@ -18,8 +18,7 @@ def add_rank():
     db_session.commit()
 
 def select_all():
-    from api.models.database import db_session
-    from api.models.models import Ranks
+    from models import Ranks
 
     return Ranks.query.all()
 

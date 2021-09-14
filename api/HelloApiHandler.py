@@ -3,8 +3,8 @@ from flask_restful import Api, Resource, reqparse
 
 class HelloApiHandler(Resource):
     def get(self):
-        import db_test
-        rank_all = select_all()
+        import models.db_test as db
+        rank_all = db.select_all()
         json = []
         for r in rank_all:
             json.append({

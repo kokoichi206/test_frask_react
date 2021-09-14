@@ -6,8 +6,9 @@ import axios from 'axios'
 function App() {
   const [getMessage, setGetMessage] = useState({})
 
+  const URL = 'https://test-flask-and-react.herokuapp.com/';
   useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/flask/hello').then(response => {
+    axios.get(`${URL}flask/hello`).then(response => {
       console.log("SUCCESS", response)
       setGetMessage(response)
     }).catch(error => {

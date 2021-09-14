@@ -8,7 +8,7 @@ function App() {
 
   const URL = 'https://test-flask-and-react.herokuapp.com/';
   useEffect(()=>{
-    axios.get(`${URL}flask/hello`).then(response => {
+    axios.get(`${URL}api/rank`).then(response => {
       console.log("SUCCESS", response)
       setGetMessage(response)
     }).catch(error => {

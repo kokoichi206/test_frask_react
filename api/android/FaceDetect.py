@@ -78,18 +78,18 @@ class FaceDetectApiHandler(Resource):
         right = loc[1]
 
         trimed_img = trimImg(file, loc)
-        return Response(response=trimed_img, content_type='image/jpeg')
-        # return {
-        #     'resultStatus': 'SUCCESS',
-        #     "face": {
-        #         "img_width": shape[0],
-        #         "img_height": shape[1],
-        #         "start_x": left,
-        #         "start_y": top,
-        #         "loc_width": right - left,
-        #         "loc_height": bottom - top,
-        #     }
-        # }
+        # return Response(response=trimed_img, content_type='image/jpeg')
+        return {
+            'resultStatus': 'SUCCESS',
+            "face": {
+                "img_width": shape[0],
+                "img_height": shape[1],
+                "start_x": left,
+                "start_y": top,
+                "loc_width": right - left,
+                "loc_height": bottom - top,
+            }
+        }
 
 
 
@@ -100,6 +100,8 @@ def findFace(img_path):
     print(loc)
     return loc
 
+
+# 数値だけでは分かりにくいので、１回ローカルに保存させる
 def trimImg(img_path, loc):
     from PIL import Image
 
@@ -118,5 +120,5 @@ def trimImg(img_path, loc):
     img = img.crop((center_x-length,center_y-length, center_x+length,center_y+length))
 
     # img = img.resize((IMG_SIZE, IMG_SIZE))
+    img.save('test.png')
     return img
-    # img.save(CROPPED_IMG_PATH + img_path)

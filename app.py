@@ -13,7 +13,7 @@ def serve(path):
     return send_from_directory(app.static_folder,'index.html')
 
 api.add_resource(HelloApiHandler, '/api/rank')
-# api.add_resource(FaceDetectApiHandler, '/api/android/facedetect')
+api.add_resource(FaceDetectApiHandler, '/api/android/facedetect')
 
 
 
@@ -23,7 +23,7 @@ from werkzeug.utils import secure_filename
 # 画像のダウンロード
 from flask import send_from_directory
 
-@app.route("/api/android/facedetect", methods=["GET", "POST"])
+# @app.route("/api/android/facedetect", methods=["GET", "POST"])
 def post_face():
 
     redirect_url = './'
@@ -118,4 +118,4 @@ def trim_and_save_img(img_path, loc):
 
 # if __name__ == 'main':
 #     print('hoge')
-app.run(port=8000, debug=True)
+# app.run(port=8000, debug=True)

@@ -10,5 +10,6 @@ RUN python -m pip install flask && \
     python -m pip install flask flask_cors
 RUN apt-get update
 RUN apt-get install -y git vim ruby
+RUN apt-get install build-essential
 
 EXPOSE 8000

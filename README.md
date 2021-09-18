@@ -6,3 +6,9 @@
 $ npm install axios
 $ yarn start
 ```
+
+## Local
+```bash
+$ pip install -r requirements.txt
+$ python app.py
+```

@@ -19,7 +19,17 @@ api.add_resource(FaceDetectApiHandler, '/api/android/facedetect')
 def get_my_nfo():
     return {
         'name': 'kokoichi',
-        'age': 167
+        'age': 26,
+        'skils': {
+            'HTML, CSS': 2,
+            'JacaScript': 2,
+            'Vue.js': 1,
+            'TypeScript': 1,
+            'Python': 3,
+            'Golang': 2,
+            'Android': 2,
+            'Linux': 3,
+        }
     }
 
 # if __name__ == 'main':

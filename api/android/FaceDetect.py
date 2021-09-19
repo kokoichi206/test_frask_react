@@ -48,7 +48,7 @@ class FaceDetectApiHandler(Resource):
         redirect_url = './'
         # ファイルがなかった場合の処理
         print(request.files)
-        if 'file' not in request.files:
+        if 'bitmap' not in request.files:
             print("no file !")
             return {
                 'android/detect': str(request.files)

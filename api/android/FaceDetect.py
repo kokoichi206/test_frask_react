@@ -44,18 +44,27 @@ class FaceDetectApiHandler(Resource):
         redirect_url = './'
         # ファイルがなかった場合の処理
         print(request.files)
-        if 'img' not in request.files:
+        if 'file' not in request.files:
             print("no file !")
-            return redirect(redirect_url)
+            return {
+                'android/detect': 'No file !!!'
+            }
             # return redirect(request.url)
         # データの取り出し
-        file = request.files['img']
+        file = request.files['file']
         # ファイル名がなかった時の処理
         if file.filename == '':
             print("no file pien !")
-            return redirect(redirect_url)
+            return {
+                'android/detect': 'No file name'
+            }
         print(file.filename)
         print(type(file))
+
+        # print(request.files)
+        # file = request.files[0]
+        # print(file)
+
 
         import face_recognition
         img_data = face_recognition.load_image_file(file)   # To numpy.ndarray

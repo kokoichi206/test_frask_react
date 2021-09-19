@@ -63,6 +63,10 @@ class FaceDetectApiHandler(Resource):
             return {
                 'android/detect': 'No file name'
             }
+        return {
+            'android/detect': str(file)
+        }
+
         print(file.filename)
         print(type(file))
 

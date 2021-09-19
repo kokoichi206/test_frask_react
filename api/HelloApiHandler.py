@@ -38,6 +38,10 @@ class HelloApiHandler(Resource):
         # }
 
     def post(self):
+        return {
+            'resultStatus': 'SUCCESS',
+            "message": 'jsonstr'
+        }
         print(self)
         parser = reqparse.RequestParser()
         parser.add_argument('type', type=str)

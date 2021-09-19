@@ -79,17 +79,33 @@ class FaceDetectApiHandler(Resource):
 
         trimed_img = trimImg(file, loc)
         # return Response(response=trimed_img, content_type='image/jpeg')
-        return {
-            'resultStatus': 'SUCCESS',
-            "face": {
-                "img_width": shape[0],
-                "img_height": shape[1],
+        face = None
+        if len(locs) == 1:
+            face = {
+                "img_width": shape[1],
+                "img_height": shape[0],
                 "start_x": left,
                 "start_y": top,
                 "loc_width": right - left,
                 "loc_height": bottom - top,
             }
+
+        return {
+            'resultStatus': 'SUCCESS',
+            "face": face
         }
+
+        # return {
+        #     'resultStatus': 'SUCCESS',
+        #     "face": {
+        #         "img_width": shape[1],
+        #         "img_height": shape[0],
+        #         "start_x": left,
+        #         "start_y": top,
+        #         "loc_width": right - left,
+        #         "loc_height": bottom - top,
+        #     }
+        # }
 
 
 

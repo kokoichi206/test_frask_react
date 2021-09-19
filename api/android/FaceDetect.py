@@ -47,7 +47,7 @@ class FaceDetectApiHandler(Resource):
         if 'file' not in request.files:
             print("no file !")
             return {
-                'android/detect': 'No file !!!'
+                'android/detect': str(request.files)
             }
             # return redirect(request.url)
         # データの取り出し

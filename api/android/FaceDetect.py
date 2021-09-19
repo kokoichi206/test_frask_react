@@ -41,9 +41,9 @@ class FaceDetectApiHandler(Resource):
 
     def post(self):
 
-        return {
-            'android/detect': str(request.files)
-        }
+        # return {
+        #     'android/detect': str(request.files)
+        # }
 
         redirect_url = './'
         # ファイルがなかった場合の処理

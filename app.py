@@ -15,6 +15,12 @@ def serve(path):
 api.add_resource(HelloApiHandler, '/api/rank')
 api.add_resource(FaceDetectApiHandler, '/api/android/facedetect')
 
+@app.route("/api/me")
+def get_my_nfo():
+    return {
+        'name': 'kokoichi',
+        'age': 167
+    }
 
 # if __name__ == 'main':
 #     print('hoge')

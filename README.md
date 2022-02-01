@@ -12,3 +12,18 @@ $ yarn start
 $ pip install -r requirements.txt
 $ python app.py
 ```
+
+## docker-compose
+``` bash
+$ docker-compose build
+$ docker-compose up
+$ docker-compose down
+```
+
+### front
+``` bash
+$ dce front sh
+# 以下 docker 内ターミナル
+$ cd front
+$ yarn start
+```

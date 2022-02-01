@@ -2,8 +2,8 @@ version: '3'
 
 services:
   app:
-    container_name: python
-    build: .
+    container_name: app
+    build: ./docker/backend
     ports:
       - 8000:8000
     environment:
@@ -16,19 +16,16 @@ services:
 
     # command: fresh  # 常にONでいいかは微妙
 
-
-  # nginx でルーティングさせる
-  # nginx:
-  #   image: nginx
-  #   depends_on:
-  #     - apii
-  #   container_name: nginx
-  #   ports:
-  #     - 80:80
-  #   environment:
-  #     - TZ=Asia/Tokyo
-  #   volumes:
-  #     - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
-
-volumes:
-  db_data:
+  front:
+    container_name: front
+    build: ./docker/frontend
+    ports:
+      - 3000:3000
+    environment:
+      POSTGRES_PASSWORD:
+    tty:
+      true
+    volumes:
+      # - ./app:/root/opt
+      - .:/app
+    command: /bin/sh

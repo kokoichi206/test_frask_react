@@ -6,26 +6,18 @@ services:
     build: ./docker/backend
     ports:
       - 8000:8000
-    environment:
-      POSTGRES_PASSWORD:
     tty:
       true
     volumes:
-      # - ./app:/root/opt
       - .:/app
-
-    # command: fresh  # 常にONでいいかは微妙
 
   front:
     container_name: front
     build: ./docker/frontend
     ports:
       - 3000:3000
-    environment:
-      POSTGRES_PASSWORD:
     tty:
       true
     volumes:
-      # - ./app:/root/opt
       - .:/app
     command: /bin/sh
